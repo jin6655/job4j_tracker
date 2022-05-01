@@ -42,5 +42,4 @@ public class Cat {
         black.eat("fish");
         black.show();
     }
-
 }
