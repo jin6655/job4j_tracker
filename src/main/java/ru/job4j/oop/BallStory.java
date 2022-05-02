@@ -14,6 +14,7 @@ public class BallStory {
         wolf.tryEat(ball);
         System.out.print("Встретил лису и ");
         fox.tryEat(ball);
-    }
+        System.out.println();
+        }
 
-}
+    }
