@@ -11,6 +11,7 @@ public class Programmer extends Engineer {
 
     public void program(int program) {
         System.out.println(getEducation());
+        System.out.println(getName());
         System.out.println("Создано программ: " + program);
     }
 
