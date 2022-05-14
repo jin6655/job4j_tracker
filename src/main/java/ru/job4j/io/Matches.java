@@ -15,7 +15,8 @@ public class Matches {
             int matches = Integer.parseInt(input.nextLine());
             if (matches == 1 || matches == 2 || matches == 3) {
                 count = count - matches;
-                System.out.println("осталось спичек на поле: " + count);
+                System.out.println("Осталось спичек в игре: " + count);
+                System.out.println();
                 turn = !turn;
             } else {
                 System.out.println("Ошибка! Сделайте новый ход!");
