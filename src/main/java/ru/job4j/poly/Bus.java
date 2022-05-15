@@ -3,9 +3,11 @@ package ru.job4j.poly;
 public class Bus implements Transport {
 
     private int x;
+    private String name;
 
     @Override
     public void drive() {
+        System.out.println(name);
     }
 
     @Override
