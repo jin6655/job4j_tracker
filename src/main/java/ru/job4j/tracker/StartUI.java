@@ -17,18 +17,29 @@ public class StartUI {
                 Item item = new Item(name);
                 tracker.add(item);
                 System.out.println("Добавленная заявка: " + item);
+            } else if (select == 1) {
+                System.out.println("== Show all items ==");
+                Item[] items = tracker.findAll();
+                if (items.length > 0) {
+                    for (Item item : items) {
+                        System.out.println(item);
+                    }
+                } else {
+                    System.out.println("Хранилище не содержит заявок");
+                }
             } else if (select == 6) {
                 run = false;
             } else {
                 System.out.println("Пользователь выбрал: " + select + " - операция не назначена");
-                break;
             }
+            System.out.println();
         }
+
     }
 
     private void showMenu() {
         String[] menu = {
-          "Add new item", "Show all items", "Edit item",
+                "Add new item", "Show all items", "Edit item",
                 "Delete item", "find item by id", "Find item by name",
                 "Exit Program"
         };
