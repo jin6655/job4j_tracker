@@ -27,8 +27,8 @@ public class StartUI {
         int id = Integer.parseInt(input.askStr("Enter id: "));
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
-        tracker.replace(id, item);
-        if (tracker.replace(id, item)) {
+        boolean rsl = tracker.replace(id, item);
+        if (rsl) {
             System.out.println("Заявка успешно изменена.");
         } else {
             System.out.println("Ошибка замены заявки.");
@@ -38,8 +38,8 @@ public class StartUI {
     public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("== Delete item ==");
         int id = Integer.parseInt(input.askStr("Enter id: "));
-        tracker.delete(id);
-        if (tracker.delete(id)) {
+        boolean rsl  = tracker.delete(id);
+        if (rsl) {
             System.out.println("Заявка удалена.");
         } else {
             System.out.println("Ошибка удаления заявки.");
