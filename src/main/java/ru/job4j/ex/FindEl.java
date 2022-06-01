@@ -16,13 +16,30 @@ public class FindEl {
         return rsl;
     }
 
+    public static boolean sent(String value, String[] abuses) throws ElementNoFoundExeption {
+        if (abuses[0].equals(value)) {
+            throw new ElementAbuseExeption("Недопустимое значение!");
+        }
+        return true;
+    }
+
+    public static void process(String[] values, String key, String[] abuses) {
+        try {
+            if (indexOf(values, key) != -1) {
+                sent(key, abuses);
+                System.out.println(key);
+            }
+        } catch (ElementAbuseExeption e) {
+            e.printStackTrace();
+        } catch (ElementNoFoundExeption e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         String[] low = new String[]{"1", "2", "k"};
-        try {
-            System.out.println(FindEl.indexOf(low, "k"));
-        } catch (ElementNoFoundExeption i) {
-            i.printStackTrace();
-        }
+        String[] abuses = new String[]{"k"};
+        process(low, "4", abuses);
     }
 
 }

@@ -21,6 +21,11 @@ public class Catty {
         System.out.println(menu[0]);
     }
 
+    public int test() {
+        int v = 2;
+        return v;
+    }
+
     public void sum() {
         System.out.println("Это вычисление простой формулы\n" + "* Формула: с = x + y + z; " + "y = " + this.y + "; z = " + this.z + "\n");
         boolean run = true;
@@ -37,9 +42,11 @@ public class Catty {
     public static void main(String[] args) {
         Catty catcalc = new Catty(30, 20);
         Catty catmenu = new Catty();
+        Catty cattest = new Catty();
         System.out.println("Привет!");
-        catmenu.menu01();
-        catcalc.sum();
+        // catmenu.menu01();
+        // catcalc.sum();
+        System.out.println(cattest.test());
     }
 
 }
