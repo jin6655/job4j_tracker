@@ -7,10 +7,10 @@ public class UsageArrayList {
     public static void main(String[] args) {
         ArrayList<String> name = new ArrayList<>();
         name.add("Petr");
-        name.add("1");
+        name.add("Iva");
         name.add("Stepan");
+        name.add(3, "Ivan");
         name.set(0, "Vasily");
-        name.remove("Ivan");
         for (Object value : name) {
             System.out.println(value);
         }
