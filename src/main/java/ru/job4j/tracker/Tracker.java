@@ -1,16 +1,18 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Tracker {
-    private final Item[] items = new Item[100];
+    private final List<Item> items = new ArrayList<>();
     private int ids = 1;
     private int size = 0;
 
     private int indexOf(int id) {
         int rsl = -1;
-        for (int i = 0; i < size; i++) {
-            if (items[i].getId() == id) {
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getId() == id) {
                 rsl = i;
                 break;
             }
@@ -20,50 +22,44 @@ public class Tracker {
 
     public Item add(Item item) {
         item.setId(ids++);
-        items[size++] = item;
+        items.add(item);
         return item;
     }
 
-    public Item[] findAll() {
-        return Arrays.copyOf(items, size);
+    public List<Item> findAll() {
+        return items;
     }
 
-    public Item[] findByName(String key) {
-        Item[] rsl = new Item[items.length];
-        int x = 0;
-        for (int i = 0; i < size; i++) {
-            Item name = items[i];
-            if (name.getName().equals(key)) {
-                rsl[x] = name;
-                x++;
+    public List<Item> findByName(String key) {
+        List<Item> rsl = new ArrayList<>();
+        for (Item i : items) {
+            if (i.getName().equals(key)) {
+                rsl.add(i);
             }
         }
-        return Arrays.copyOf(rsl, x);
+        return rsl;
     }
 
     public Item findById(int id) {
         int i = indexOf(id);
-        return i != -1 ? items[i] : null;
+        return i != -1 ? items.get(i) : null;
     }
 
     public boolean replace(int id, Item item) {
         int i = indexOf(id);
-        boolean rsl = i != -1;
-        if (rsl) {
+        if (i != -1) {
             item.setId(id);
-            items[i] = item;
-            rsl = true;
+            items.set(i, item);
+            return true;
         }
-        return rsl;
+        return false;
     }
 
     public boolean delete(int id) {
         int i = indexOf(id);
         boolean rsl = false;
         if (i != -1) {
-            System.arraycopy(items, i + 1, items, i, size - 1 - i);
-            items[size - 1] = null;
-            size--;
+            items.remove(i);
             rsl = true;
         }
         return rsl;

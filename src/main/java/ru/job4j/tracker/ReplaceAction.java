@@ -19,8 +19,7 @@ public class ReplaceAction implements UserAction {
         int id = Integer.parseInt(input.askStr("Enter id: "));
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
-        boolean rsl = tracker.replace(id, item);
-        if (rsl) {
+        if (tracker.replace(id, item)) {
             out.println("Заявка успешно изменена.");
         } else {
             out.println("Ошибка замены заявки.");
