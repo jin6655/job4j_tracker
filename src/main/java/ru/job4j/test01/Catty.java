@@ -28,8 +28,11 @@ public class Catty implements Cloneable {
         return v;
     }
 
-    public int sumyz() {
-        return y + z;
+    public String sumyz(int sd) {
+        if (sd == 1) {
+            return "1";
+        }
+        return null;
     }
 
     public void sum() {
@@ -88,10 +91,11 @@ public class Catty implements Cloneable {
 
     public static void main(String[] args) {
         Catty catcalc = new Catty(30, 20);
-        Catty catmenu = new Catty();
         Catty cattest = new Catty(2, 3);
+        Catty catmenu = new Catty();
         System.out.println("Привет!");
-        System.out.println(catmenu.printarray());
+        System.out.println(catmenu.sumyz(2));
+        //System.out.println(catmenu.printarray());
         // catmenu.menu01();
         // catcalc.sum();
         //System.out.println(cattest.test());

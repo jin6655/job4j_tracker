@@ -6,7 +6,7 @@ public class Catty01 {
 
     public int sum(int x, int y) {
         Catty cattysumm = new Catty(2, 2);
-        return x + y + cattysumm.sumyz();
+        return x + y;
     }
 
     public static void main(String[] args) {
