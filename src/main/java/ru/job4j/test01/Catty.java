@@ -3,7 +3,7 @@ package ru.job4j.test01;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Catty implements Cloneable {
+public class Catty implements Cloneable, Comparable<String> {
 
     private int x;
     private int y;
@@ -16,43 +16,6 @@ public class Catty implements Cloneable {
     public Catty(int y, int z) {
         this.y = y;
         this.z = z;
-    }
-
-    public void menu01() {
-        String[] menu = {"1. Формулы"};
-        System.out.println(menu[0]);
-    }
-
-    public int test() {
-        int v = 2;
-        return v;
-    }
-
-    public String sumyz(int sd) {
-        if (sd == 1) {
-            return "1";
-        }
-        return null;
-    }
-
-    public void sum() {
-        System.out.println("Это вычисление простой формулы\n" + "* Формула: с = x + y + z; " + "y = " + y + "; z = " + z + "\n");
-        boolean run = true;
-        while (run) {
-            Scanner scan = new Scanner(System.in);
-            System.out.println("\nВведите значение x");
-            int numx = scan.nextInt();
-            x = numx;
-            int summ = y + z + numx;
-            System.out.println("\nПолучено значение x = " + numx + "; Расчёт: c = " + y + " + " + z + " + " + numx + "; Итог: с = " + summ + ";");
-        }
-    }
-
-    public boolean printarray() {
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(Integer.parseInt(array[i]));
-        }
-        return true;
     }
 
     public int getX() {
@@ -94,11 +57,13 @@ public class Catty implements Cloneable {
         Catty cattest = new Catty(2, 3);
         Catty catmenu = new Catty();
         System.out.println("Привет!");
-        System.out.println(catmenu.sumyz(2));
-        //System.out.println(catmenu.printarray());
-        // catmenu.menu01();
-        // catcalc.sum();
-        //System.out.println(cattest.test());
+        String x = "Ivanovahhhhhhhh";
+        String y = "Ivknovk";
+        System.out.println(x.compareTo(y));
     }
 
+    @Override
+    public int compareTo(String o) {
+        return 0;
+    }
 }
