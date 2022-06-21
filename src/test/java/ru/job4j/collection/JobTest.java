@@ -69,5 +69,4 @@ public class JobTest {
         assertThat(rsl, lessThan(0));
     }
 
-
 }

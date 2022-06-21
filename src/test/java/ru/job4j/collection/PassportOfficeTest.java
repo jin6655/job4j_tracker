@@ -15,7 +15,7 @@ public class PassportOfficeTest {
     }
 
     @Test
-    public void DoubleAdd() {
+    public void whenDoubleAdd() {
         Citizen citizen01 = new Citizen("2f44a", "Petr Arsentev");
         Citizen citizen = new Citizen("2f44a", "Petr Arsentev");
         PassportOffice office = new PassportOffice();
