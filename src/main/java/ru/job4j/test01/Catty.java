@@ -57,9 +57,10 @@ public class Catty implements Cloneable, Comparable<String> {
         Catty cattest = new Catty(2, 3);
         Catty catmenu = new Catty();
         System.out.println("Привет!");
-        String x = "Ivanovahhhhhhhh";
+        String x = "120. 2. Ivanova";
         String y = "Ivknovk";
-        System.out.println(x.compareTo(y));
+        String[] z = x.split(". ");
+        System.out.println(Integer.parseInt(z[0]));
     }
 
     @Override
