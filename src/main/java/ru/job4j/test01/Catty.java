@@ -67,4 +67,5 @@ public class Catty implements Cloneable, Comparable<String> {
     public int compareTo(String o) {
         return 0;
     }
+
 }

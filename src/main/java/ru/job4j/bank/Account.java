@@ -2,9 +2,20 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс для аккаунта пользователя, привязка: реквизиты.
+ * @author VasilyGromov
+ */
 public class Account {
 
+    /**
+     * реквизиты счёта
+     */
     private String requisite;
+
+    /**
+     * баланс счёта
+     */
     private double balance;
 
     public Account(String requisite, double balance) {
