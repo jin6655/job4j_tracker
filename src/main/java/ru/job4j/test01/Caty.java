@@ -84,19 +84,15 @@ public class Caty implements Comparable<Caty> {
         Caty caty03 = new Caty(1, "Blut");
         Caty caty04 = new Caty(4, "A");
         System.out.println("Привет!");
-        List<Caty> one = new ArrayList<>() {{
-            add(caty01);
-            add(caty02);
-            add(caty03);
-            add(caty04);
-        }};
-        LinkedHashSet<String> two = new LinkedHashSet<>();
-        Map<Integer, String> three = new HashMap<>();
-        Set<Caty> four = new TreeSet<>();
-        List<String> i  = new ArrayList<>();
-        String k = "K1/SK1/SSK1";
-        String l = "K2/SK1";
-        System.out.println(k.compareTo(l));
+        List<String> one = Arrays.asList(
+                "1",
+                "2",
+                "3"
+        );
+        System.out.println(one);
+        for (String i : one) {
+            System.out.print(i + " ");
+        }
     }
 
 }
