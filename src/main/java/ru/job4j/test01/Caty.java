@@ -84,14 +84,14 @@ public class Caty implements Comparable<Caty> {
         Caty caty03 = new Caty(1, "Blut");
         Caty caty04 = new Caty(4, "A");
         System.out.println("Привет!");
-        List<String> one = Arrays.asList(
-                "1",
-                "2",
-                "3"
-        );
-        System.out.println(one);
+        List<String> one = Arrays.asList("1", "2", "3", "1", "3");
+        Set<String> two = new HashSet<>(one);
         for (String i : one) {
             System.out.print(i + " ");
+        }
+        System.out.println();
+        for (String j : two) {
+            System.out.print(j + " ");
         }
     }
 
