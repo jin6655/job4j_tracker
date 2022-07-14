@@ -86,12 +86,9 @@ public class Caty implements Comparable<Caty> {
         Caty caty03 = new Caty(1, "Blut");
         Caty caty04 = new Caty(4, "A");
         System.out.println("Привет!");
-        Comparator<String> compText = (s, s1) -> s.compareTo(s1);
-        Comparator<String> compDescSize = (s, s1) -> Integer.compare(s1.length(), s.length());
-        String a = "a";
-        String b = "b";
-        System.out.println(compText.compare(a, b));
-        System.out.println(compDescSize.compare(a, b));
+        List<String> list = Arrays.asList("1", "2", "3");
+        Consumer<String> i = (s) -> System.out.print(s + " ");
+        list.forEach(i);
     }
 
 }
