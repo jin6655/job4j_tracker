@@ -7,14 +7,19 @@ import java.util.List;
 public class LambdaUsage {
 
     public static void main(String[] args) {
-        List<String > strings = Arrays.asList("eeeee", "a", "cccc", "dd", "bbb");
+        List<String> strings = Arrays.asList("eeeee", "a", "cccc", "dd", "bbb");
         Comparator<String> comparator = (left, right) -> {
-            System.out.println("сравненеие " +  right + "(" + right.length() + ") " + left + "(" + left.length() + ")");
-          return Integer.compare(right.length(), left.length());
+            System.out.println("сравненеие " + right + "(" + right.length() + ") " + left + "(" + left.length() + ")");
+            return Integer.compare(right.length(), left.length());
         };
-        strings.sort(comparator);
-        for (String str : strings) {
-            System.out.println(str);
-        }
+        String[] names = {
+                "Ivan",
+                "Semen"
+        };
+        Comparator<String> lengthCmp = (left, right) -> {
+            System.out.println("execute comparator");
+            return Integer.compare(left.length(), right.length());
+        };
+        Arrays.sort(names, lengthCmp);
     }
 }
