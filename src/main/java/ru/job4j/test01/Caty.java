@@ -1,8 +1,10 @@
 package ru.job4j.test01;
 
+import jdk.dynalink.Operation;
 import ru.job4j.collection.DepDescComp;
 
 import java.util.*;
+import java.util.function.*;
 
 public class Caty implements Comparable<Caty> {
 
@@ -58,7 +60,7 @@ public class Caty implements Comparable<Caty> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)  {
+        if (this == o) {
             return true;
         }
         if (o == null || getClass() != o.getClass()) {
@@ -84,15 +86,12 @@ public class Caty implements Comparable<Caty> {
         Caty caty03 = new Caty(1, "Blut");
         Caty caty04 = new Caty(4, "A");
         System.out.println("Привет!");
-        List<String> one = Arrays.asList("1", "2", "3", "1", "3");
-        Set<String> two = new HashSet<>(one);
-        for (String i : one) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
-        for (String j : two) {
-            System.out.print(j + " ");
-        }
+        Comparator<String> compText = (s, s1) -> s.compareTo(s1);
+        Comparator<String> compDescSize = (s, s1) -> Integer.compare(s1.length(), s.length());
+        String a = "a";
+        String b = "b";
+        System.out.println(compText.compare(a, b));
+        System.out.println(compDescSize.compare(a, b));
     }
 
 }
