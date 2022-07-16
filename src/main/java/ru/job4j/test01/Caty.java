@@ -2,6 +2,7 @@ package ru.job4j.test01;
 
 import jdk.dynalink.Operation;
 import ru.job4j.collection.DepDescComp;
+import ru.job4j.tracker.StubOutput;
 
 import java.util.*;
 import java.util.function.*;
@@ -86,9 +87,40 @@ public class Caty implements Comparable<Caty> {
         Caty caty03 = new Caty(1, "Blut");
         Caty caty04 = new Caty(4, "A");
         System.out.println("Привет!");
-        List<String> list = Arrays.asList("1", "2", "3");
-        Consumer<String> i = (s) -> System.out.print(s + " ");
-        list.forEach(i);
+        int rsl = 0;
+        int[] ms = {1, 2, 3};
+        List<Integer[]> list = new ArrayList<>();
+        int i = 0;
+        int j = 0;
+        int cl = 0;
+        for (int k = 0; k < ms.length; k++) {
+            i ++;
+            j ++;
+            Integer[] l = {i, j};
+            list.add(l);
+            int finalI = i;
+            int finalJ = j;
+            int h = cl;
+            cl = calcc(
+                    () -> {
+                        int f = finalI + finalJ;
+                        System.out.println(finalI + " + " + finalJ + " = " + f);
+                     return f + h;
+                    }
+            );
+            rsl = cl;
+        }
+        for (Integer[] z : list) {
+            for (int k = 0; k < z.length; k++) {
+                System.out.print(z[k] + " ");
+            }
+        }
+        System.out.println();
+        System.out.println(rsl);
+    }
+
+    private static Integer calcc(Supplier<Integer> calc) {
+        return calc.get();
     }
 
 }
