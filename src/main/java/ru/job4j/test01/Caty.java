@@ -87,40 +87,23 @@ public class Caty implements Comparable<Caty> {
         Caty caty03 = new Caty(1, "Blut");
         Caty caty04 = new Caty(4, "A");
         System.out.println("Привет!");
-        int rsl = 0;
-        int[] ms = {1, 2, 3};
-        List<Integer[]> list = new ArrayList<>();
-        int i = 0;
-        int j = 0;
-        int cl = 0;
-        for (int k = 0; k < ms.length; k++) {
-            i++;
-            j++;
-            Integer[] l = {i, j};
-            list.add(l);
-            int finalI = i;
-            int finalJ = j;
-            int h = cl;
-            cl = calcc(
-                    () -> {
-                        int f = finalI + finalJ;
-                        System.out.println(finalI + " + " + finalJ + " = " + f);
-                        return f + h;
-                    }
-            );
-            rsl = cl;
-        }
-        for (Integer[] z : list) {
-            for (int k = 0; k < z.length; k++) {
-                System.out.print(z[k] + " ");
-            }
+        List<String> i = Arrays.asList("aaa", "bbbb", "cccc", "eeeee");
+        String a = "a";
+        String b = "b";
+        System.out.println("Массив:");
+        for (String s : i) {
+            System.out.print(s + " ");
         }
         System.out.println();
-        System.out.println(rsl);
-    }
-
-    private static Integer calcc(Supplier<Integer> calc) {
-        return calc.get();
+        for (String l : i) {
+            if (l.contains(a)) {
+                System.out.println(" тут есть a :" + l);
+            } else if (l.contains(b)) {
+                System.out.println(" тут есть b :" + l);
+            } else {
+                System.out.println("Совпадений не найдено: " + l);
+            }
+        }
     }
 
 }
