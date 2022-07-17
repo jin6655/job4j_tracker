@@ -14,5 +14,4 @@ public class Diapason {
         }
         return rsl;
     }
-
 }
