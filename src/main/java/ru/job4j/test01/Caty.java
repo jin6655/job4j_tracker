@@ -94,8 +94,8 @@ public class Caty implements Comparable<Caty> {
         int j = 0;
         int cl = 0;
         for (int k = 0; k < ms.length; k++) {
-            i ++;
-            j ++;
+            i++;
+            j++;
             Integer[] l = {i, j};
             list.add(l);
             int finalI = i;
@@ -105,7 +105,7 @@ public class Caty implements Comparable<Caty> {
                     () -> {
                         int f = finalI + finalJ;
                         System.out.println(finalI + " + " + finalJ + " = " + f);
-                     return f + h;
+                        return f + h;
                     }
             );
             rsl = cl;
