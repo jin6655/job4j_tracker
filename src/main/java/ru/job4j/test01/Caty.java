@@ -2,8 +2,10 @@ package ru.job4j.test01;
 
 import jdk.dynalink.Operation;
 import ru.job4j.collection.DepDescComp;
+import ru.job4j.oop.Cat;
 import ru.job4j.tracker.StubOutput;
 
+import javax.swing.text.AttributeSet;
 import java.util.*;
 import java.util.function.*;
 
@@ -87,23 +89,19 @@ public class Caty implements Comparable<Caty> {
         Caty caty03 = new Caty(1, "Blut");
         Caty caty04 = new Caty(4, "A");
         System.out.println("Привет!");
-        List<String> i = Arrays.asList("aaa", "bbbb", "cccc", "eeeee");
-        String a = "a";
-        String b = "b";
-        System.out.println("Массив:");
-        for (String s : i) {
-            System.out.print(s + " ");
-        }
-        System.out.println();
-        for (String l : i) {
-            if (l.contains(a)) {
-                System.out.println(" тут есть a :" + l);
-            } else if (l.contains(b)) {
-                System.out.println(" тут есть b :" + l);
-            } else {
-                System.out.println("Совпадений не найдено: " + l);
-            }
-        }
+        List<Integer> cat = Arrays.asList(1, 2, 3);
+        List<Caty> list = new ArrayList<>();
+        String l = "dd";
+        Supplier<String> catSuppL = () -> {
+            return  "!" + l + "ff";
+        };
+        String z = catSuppL.get() + "0";
+        System.out.println(z);
+    }
+
+    public static int sum(int a, int b, Function<Integer, Integer> summ) {
+        int rsl = summ.apply(b) + a + b;
+        return rsl;
     }
 
 }
