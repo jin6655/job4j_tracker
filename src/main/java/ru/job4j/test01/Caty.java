@@ -9,6 +9,7 @@ import javax.swing.text.AttributeSet;
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Caty implements Comparable<Caty> {
 
@@ -94,19 +95,17 @@ public class Caty implements Comparable<Caty> {
         Caty caty03 = new Caty(1, "Blut");
         Caty caty04 = new Caty(3, "A");
         System.out.println("Привет!");
-        List<Caty> list = List.of(
-                new Caty(1, "a"),
-                new Caty(2, "b"),
-                new Caty(3, "c"),
-                new Caty(3, "d")
-        );
-        Map<Integer, String> map = list.stream()
-                .collect(Collectors.toMap(
-                        s -> s.getX(),
-                        s -> s.getStr(),
-        (e, r) -> e
-                ));
-        System.out.println(map);
+        Integer[][] matrix = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+        List<Integer[][]> l = new ArrayList<>();
+        l.add(matrix);
+        l.stream()
+                .flatMap(s -> Stream.of(s))
+                .collect(Collectors.toList())
+                .forEach(System.out::print);
     }
 
 }
