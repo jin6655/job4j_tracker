@@ -8,6 +8,7 @@ import ru.job4j.tracker.StubOutput;
 import javax.swing.text.AttributeSet;
 import java.util.*;
 import java.util.function.*;
+import java.util.stream.Collectors;
 
 public class Caty implements Comparable<Caty> {
 
@@ -93,17 +94,19 @@ public class Caty implements Comparable<Caty> {
         Caty caty03 = new Caty(1, "Blut");
         Caty caty04 = new Caty(3, "A");
         System.out.println("Привет!");
-        List<Caty> cat = List.of(
-                caty01,
-                caty02,
-                caty03,
-                caty04
+        List<Caty> list = List.of(
+                new Caty(1, "a"),
+                new Caty(2, "b"),
+                new Caty(3, "c"),
+                new Caty(3, "d")
         );
-        cat.stream()
-                .map(Caty::getStr)
-                .sorted()
-                .distinct()
-                .forEach(System.out::println);
+        Map<Integer, String> map = list.stream()
+                .collect(Collectors.toMap(
+                        s -> s.getX(),
+                        s -> s.getStr(),
+        (e, r) -> e
+                ));
+        System.out.println(map);
     }
 
 }
