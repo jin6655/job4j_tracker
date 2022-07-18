@@ -27,6 +27,10 @@ public class Caty implements Comparable<Caty> {
     public Caty() {
     }
 
+    public Caty(int x) {
+        this.x = x;
+    }
+
     public Caty(int x, String str) {
         this.x = x;
         this.str = str;
@@ -85,23 +89,21 @@ public class Caty implements Comparable<Caty> {
 
     public static void main(String[] args) {
         Caty caty01 = new Caty(3, "Caty my love");
-        Caty caty02 = new Caty(2, "Hi");
+        Caty caty02 = new Caty(2, "Di");
         Caty caty03 = new Caty(1, "Blut");
-        Caty caty04 = new Caty(4, "A");
+        Caty caty04 = new Caty(3, "A");
         System.out.println("Привет!");
-        List<Integer> cat = Arrays.asList(1, 2, 3);
-        List<Caty> list = new ArrayList<>();
-        String l = "dd";
-        Supplier<String> catSuppL = () -> {
-            return  "!" + l + "ff";
-        };
-        String z = catSuppL.get() + "0";
-        System.out.println(z);
-    }
-
-    public static int sum(int a, int b, Function<Integer, Integer> summ) {
-        int rsl = summ.apply(b) + a + b;
-        return rsl;
+        List<Caty> cat = List.of(
+                caty01,
+                caty02,
+                caty03,
+                caty04
+        );
+        cat.stream()
+                .map(Caty::getStr)
+                .sorted()
+                .distinct()
+                .forEach(System.out::println);
     }
 
 }
