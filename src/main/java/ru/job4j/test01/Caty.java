@@ -95,18 +95,9 @@ public class Caty implements Comparable<Caty> {
         Caty caty03 = new Caty(1, "Blut");
         Caty caty04 = new Caty(3, "A");
         System.out.println("Привет!");
-        Map<Integer, String> map = new HashMap<>();
-        map.put(1, "ff");
-        map.put(2, "gg");
-        map.put(4, "gg");
-        map.put(3, "gg");
-        Map<Integer, String> m = new HashMap<>();
-        String[] c = {"a", "b", "c", "d"};
-        String[] b = {"!"};
-        Integer[] a = {0, 1};
-        Stream.of(c)
-                .flatMap(s -> Stream.of(b).flatMap(l -> Stream.of(a).map(g -> g + "+" + l + "+" + s + " ")))
-                .forEach(System.out::println);
+        List<String> i = new ArrayList<>(List.of("a", "b"));
+        i.stream().forEach(s -> System.out.print(s + " "));
+        //Map.of(1, "a", 2, "b", 3, "c").forEach((v, k) -> System.out.println(v + " " + k));
     }
 
 }
