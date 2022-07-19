@@ -42,13 +42,13 @@ public class BankService {
      * @param passport номер пасопрта
      * @return пользователь с указанным номером паспорта, если такой уже создан.
      */
+    //private final Map<User, List<Account>> users = new HashMap<>();
     public User findByPassport(String passport) {
-        for (Map.Entry<User, List<Account>> i : users.entrySet()) {
-            if (i.getKey().getPassport().equals(passport)) {
-                return i.getKey();
-            }
-        }
-        return null;
+        return users.keySet()
+                .stream()
+                .filter(s -> s.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
@@ -58,14 +58,13 @@ public class BankService {
      * @return возвращает существующий аккаунт пользователя с указанным паспортом по указанным реквизитам
      */
     public Account findByRequisite(String passport, String requisite) {
-        if (findByPassport(passport) != null) {
-            for (Map.Entry<User, List<Account>> i : users.entrySet()) {
-                for (Account j : i.getValue()) {
-                    if (j.getRequisite().equals(requisite)) {
-                        return j;
-                    }
-                }
-            }
+        User i = findByPassport(passport);
+        if (i != null) {
+            return  users.get(i)
+                    .stream()
+                    .filter(s -> s.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
         return null;
     }

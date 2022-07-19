@@ -95,17 +95,18 @@ public class Caty implements Comparable<Caty> {
         Caty caty03 = new Caty(1, "Blut");
         Caty caty04 = new Caty(3, "A");
         System.out.println("Привет!");
-        Integer[][] matrix = {
-                {1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}
-        };
-        List<Integer[][]> l = new ArrayList<>();
-        l.add(matrix);
-        l.stream()
-                .flatMap(s -> Stream.of(s))
-                .collect(Collectors.toList())
-                .forEach(System.out::print);
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "ff");
+        map.put(2, "gg");
+        map.put(4, "gg");
+        map.put(3, "gg");
+        Map<Integer, String> m = new HashMap<>();
+        String i = map.values()
+                .stream()
+                .filter(s -> s == "ff")
+                .findFirst()
+                .orElse(null);
+        System.out.println(i);
     }
 
 }
