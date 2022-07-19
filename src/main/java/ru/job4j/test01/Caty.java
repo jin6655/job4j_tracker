@@ -101,12 +101,12 @@ public class Caty implements Comparable<Caty> {
         map.put(4, "gg");
         map.put(3, "gg");
         Map<Integer, String> m = new HashMap<>();
-        String i = map.values()
-                .stream()
-                .filter(s -> s == "ff")
-                .findFirst()
-                .orElse(null);
-        System.out.println(i);
+        String[] c = {"a", "b", "c", "d"};
+        String[] b = {"!"};
+        Integer[] a = {0, 1};
+        Stream.of(c)
+                .flatMap(s -> Stream.of(b).flatMap(l -> Stream.of(a).map(g -> g + "+" + l + "+" + s + " ")))
+                .forEach(System.out::println);
     }
 
 }
