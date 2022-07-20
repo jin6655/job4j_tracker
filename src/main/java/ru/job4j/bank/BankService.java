@@ -1,9 +1,7 @@
 package ru.job4j.bank;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.tools.OptionChecker;
+import java.util.*;
 
 /**
  * Класс для работы с аккаунтами клиентов
@@ -42,7 +40,6 @@ public class BankService {
      * @param passport номер пасопрта
      * @return пользователь с указанным номером паспорта, если такой уже создан.
      */
-    //private final Map<User, List<Account>> users = new HashMap<>();
     public User findByPassport(String passport) {
         return users.keySet()
                 .stream()
@@ -90,6 +87,13 @@ public class BankService {
             rsl = true;
         }
         return rsl;
+    }
+
+    public static void main(String[] args) {
+        BankService bank = new BankService();
+        bank.addUser(new User("321", "Petr Arsentev"));
+        User user = bank.findByPassport("321");
+        System.out.println(user.getUsername());
     }
 
 }
