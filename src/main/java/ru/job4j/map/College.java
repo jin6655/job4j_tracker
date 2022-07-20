@@ -26,13 +26,10 @@ public class College {
 
     public Optional<Subject> findBySubjectName(String account, String name) {
         Optional<Student> a = findByAccount(account);
-        if (a.isPresent()) {
-            return students.get(a.get())
+            return a.flatMap(f -> students.get(f)
                     .stream()
                     .filter(s -> s.getName().equals(name))
-                    .findFirst();
-        }
-        return Optional.empty();
+                    .findFirst());
     }
 
     public static void main(String[] args) {
