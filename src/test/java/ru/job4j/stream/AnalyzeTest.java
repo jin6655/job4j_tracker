@@ -67,11 +67,10 @@ public class AnalyzeTest {
         );
         assertThat(average, is(List.of(
                 new Tuple("Math", 80D),
-                new Tuple( "Lang" , 80D),
+                new Tuple("Lang", 80D),
                 new Tuple("Philosophy", 80D)
         )));
     }
-
 
     @Test
     public void whenBestPupil() {

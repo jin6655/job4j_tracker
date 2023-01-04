@@ -1,10 +1,9 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class Tracker {
+public class MemTracker implements Store {
     private final List<Item> items = new ArrayList<>();
     private int ids = 1;
     private int size = 0;
@@ -20,31 +19,14 @@ public class Tracker {
         return rsl;
     }
 
+    @Override
     public Item add(Item item) {
         item.setId(ids++);
         items.add(item);
         return item;
     }
 
-    public List<Item> findAll() {
-        return items;
-    }
-
-    public List<Item> findByName(String key) {
-        List<Item> rsl = new ArrayList<>();
-        for (Item i : items) {
-            if (i.getName().equals(key)) {
-                rsl.add(i);
-            }
-        }
-        return rsl;
-    }
-
-    public Item findById(int id) {
-        int i = indexOf(id);
-        return i != -1 ? items.get(i) : null;
-    }
-
+    @Override
     public boolean replace(int id, Item item) {
         int i = indexOf(id);
         if (i != -1) {
@@ -55,6 +37,7 @@ public class Tracker {
         return false;
     }
 
+    @Override
     public boolean delete(int id) {
         int i = indexOf(id);
         boolean rsl = false;
@@ -63,6 +46,28 @@ public class Tracker {
             rsl = true;
         }
         return rsl;
+    }
+
+    @Override
+    public List<Item> findAll() {
+        return items;
+    }
+
+    @Override
+    public List<Item> findByName(String key) {
+        List<Item> rsl = new ArrayList<>();
+        for (Item i : items) {
+            if (i.getName().equals(key)) {
+                rsl.add(i);
+            }
+        }
+        return rsl;
+    }
+
+    @Override
+    public Item findById(int id) {
+        int i = indexOf(id);
+        return i != -1 ? items.get(i) : null;
     }
 
 }
