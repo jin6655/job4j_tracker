@@ -14,14 +14,14 @@ public class FindItemByIDAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, SqlTracker tracker) {
+    public boolean execute(Input input, Store tracker) {
         out.println("== Find items by id ==");
-        int id = Integer.parseInt(input.askStr("Enter id: "));
+        int id = input.askInt("Enter id: ");
         Item item = tracker.findById(id);
         if (item != null) {
             out.println(item);
         } else {
-            out.println("Заявки с введённым id: " + id + " не найдена.");
+            out.println("Request with id " + id + " not found.");
         }
         return true;
     }

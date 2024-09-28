@@ -8,7 +8,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 
-public class TrackerTest {
+public class MemTrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         MemTracker tracker = new MemTracker();

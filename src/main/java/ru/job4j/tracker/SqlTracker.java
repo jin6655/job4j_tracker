@@ -10,6 +10,13 @@ public class SqlTracker implements Store, AutoCloseable {
 
     private Connection cn;
 
+    public SqlTracker() {
+    }
+
+    public SqlTracker(Connection cn) {
+        this.cn = cn;
+    }
+
     public void init() {
         try (InputStream in = SqlTracker.class.getClassLoader().getResourceAsStream("app.properties")) {
             Properties config = new Properties();
@@ -41,9 +48,9 @@ public class SqlTracker implements Store, AutoCloseable {
             statement.setTimestamp(2, dateSql);
             statement.execute();
             ResultSet generatedKey = statement.getGeneratedKeys();
-                if (generatedKey.next()) {
-                    item.setId(generatedKey.getInt(1));
-                }
+            if (generatedKey.next()) {
+                item.setId(generatedKey.getInt(1));
+            }
             item.setId(statement.getGeneratedKeys().getInt(1));
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,7 +62,7 @@ public class SqlTracker implements Store, AutoCloseable {
     public boolean replace(int id, Item item) {
         boolean rsl = false;
         try (Statement statement = cn.createStatement()) {
-            String sql = String.format("update items set name = '%s', created = %s where id = %s",
+            String sql = String.format("update items set name = '%s', created = '%s' where id = %s",
                     item.getName(), item.getCreated().toString(), id
             );
             statement.execute(sql);
@@ -129,18 +136,6 @@ public class SqlTracker implements Store, AutoCloseable {
             e.printStackTrace();
         }
         return rsl;
-    }
-
-    public static void main(String[] args) {
-        Item item = new Item("name_02");
-        try (SqlTracker tracker = new SqlTracker()) {
-            tracker.init();
-            tracker.add(item);
-            tracker.delete(item.getId());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println("new id объекта " + item.getId());
     }
 
 }

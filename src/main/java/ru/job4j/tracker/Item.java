@@ -64,9 +64,4 @@ public class Item {
         return Objects.hash(name);
     }
 
-    public static void main(String[] args) {
-        Item d = new Item();
-        System.out.println(d.created);
-    }
-
 }

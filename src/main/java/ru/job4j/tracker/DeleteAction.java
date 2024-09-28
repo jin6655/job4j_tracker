@@ -14,14 +14,14 @@ public class DeleteAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, SqlTracker tracker) {
+    public boolean execute(Input input, Store tracker) {
         out.println("== Delete item ==");
-        int id = Integer.parseInt(input.askStr("Enter id: "));
+        int id = input.askInt("Enter id: ");
         boolean rsl = tracker.delete(id);
         if (rsl) {
-            out.println("Заявка удалена.");
+            out.println("Application deleted");
         } else {
-            out.println("Ошибка удаления заявки.");
+            out.println("Error deleting request.");
         }
         return true;
     }
